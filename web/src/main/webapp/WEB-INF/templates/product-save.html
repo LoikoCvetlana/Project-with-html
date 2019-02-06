@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>New Product</title>
+</head>
+<body>
+<div th:insert="~{header}"></div>
+
+</div>
+<form th:action="@{/product-save}" th:method="post" th:object="${productCreateDto}">
+    <div class="form-group">
+        <p><b>Наименование: </b><label for="name">
+            <input class="form-control" type="text" id="name" th:field="*{name}">
+        </label></p>
+    </div>
+    <div class="form-group">
+        <p><b>Артикль: </b> <label for="article">
+            <input class="form-control" type="text" id="article" th:field="*{article}">
+        </label></p>
+    </div>
+    <div class="form-group">
+        <p><b>Ссылка на фото: </b> <label for="picture">
+            <input class="form-control" type="text" id="picture" th:field="*{picture}">
+        </label></p>
+    </div>
+    <div class="form-group">
+        <p><b>Стоимость с НДС: </b> <label for="value">
+            <input class="form-control" type="number" id="value" th:field="*{value}">
+        </label></p>
+    </div>
+
+    <div class="form-group">
+        <p><b>Материал: </b>
+            <select th:field="*{material}" required>
+                <option th:each="material: ${materials}" th:value="${material.name}" th:text="${material.name}">
+                </option>
+            </select>
+         </p>
+        <br>
+    </div>
+
+    <div class="form-group">
+        <input class="btn btn-success" type="submit" value="Save">
+    </div>
+</form>
+</body>
+</html>

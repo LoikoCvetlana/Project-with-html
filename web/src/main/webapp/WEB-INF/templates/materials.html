@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Material information</title>
+</head>
+<body>
+<div th:insert="~{header}"></div>
+
+<div th:each="material: ${materials}">
+    <br> ***
+    <p> <b>Название: </b>
+        <a th:href="@{/material-info(id=${material.id})}" th:text="${material.name}">Material name</a>
+
+        <!--<span id="Name" th:text="${material.name}">Name</span> <br>-->
+
+        <!--<b>Описание: </b>-->
+        <!--<span id="Description" th:text="${material.description}">Description</span>-->
+    </p>
+</div>
+</body>
+</html>

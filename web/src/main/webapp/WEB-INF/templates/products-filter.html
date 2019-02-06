@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">>
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+</head>
+<body>
+<div th:insert="~{header}"></div>
+
+<!--<span sec:authentication="name">Username</span>-->
+
+<div th:each="product: ${products}">
+    <br> ***
+    <p><img id="picture" th:src="@{${product.picture}}" th:alt="picture" width="100"> <br>
+    <a th:href="@{/product-info(id=${product.id})}" th:text="${product.name}+${product.article}">Product name</a>
+    </p>
+</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>New User</title>
+</head>
+<body>
+<div th:insert="~{header}"></div>
+
+</div>
+<form th:action="@{/user-save}" th:method="post" th:object="${userCreateDto}">
+    <div class="form-group">
+        <p><b>Адрес почтового ящика: </b><label for="email">
+            <input class="form-control" type="text" id="email" th:field="*{email}">
+        </label></p>
+    </div>
+    <div class="form-group">
+        <p><b>Пароль: </b> <label for="password">
+            <input class="form-control" type="password" id="password" th:field="*{password}">
+        </label></p>
+    </div>
+    <div class="form-group">
+        <p><b>Имя: </b> <label for="name">
+            <input class="form-control" type="text" id="Name" th:field="*{fullName.name}">
+        </label></p>
+    </div>
+    <div class="form-group">
+        <p><b>Фамилия: </b> <label for="lastname">
+            <input class="form-control" type="text" id="Lastname" th:field="*{fullName.lastname}">
+        </label></p>
+    </div>
+    <!--<div class="form-group">-->
+        <!--<p><b>Организация: </b>  <label for="company">-->
+            <!--<input class="form-control" type="text" id="Company" th:field="*{userDateil.company}">-->
+        <!--</label></p>-->
+    <!--</div>-->
+    <!--<div class="form-group">-->
+    <!--<p><b>Должность: </b>  <label for="position">-->
+        <!--<input class="form-control" type="text" id="Position" th:field="*{userDateil.position}">-->
+    <!--</label></p>-->
+<!--</div>-->
+    <div class="form-group">
+        <input class="btn btn-success" type="submit" value="Save">
+    </div>
+</form>
+</body>
+</html>

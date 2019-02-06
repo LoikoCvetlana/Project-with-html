@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+<div th:insert="~{header}"></div>
+<div th:each="user: ${users}">
+    <p> <b>Группа пользователей: </b> <span th:text="${user.role}">Role</span> <br>
+        <b>Дата регистрации </b> <span th:text="${user.registrationDate}">Role</span> <br>
+        <b>Полное имя: </b> <a th:href="@{/user-info(id=${user.id})}" th:text="${user.fullName.name}+${user.fullName.lastname}">Product name</a><br>
+       ***
+    </p>
+    <br>
+</div>
+</body>
+</html>

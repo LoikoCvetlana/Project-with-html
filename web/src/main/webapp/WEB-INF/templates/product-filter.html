@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>New Product</title>
+</head>
+<body>
+<div th:insert="~{header}"></div>
+
+    </div>
+        <form th:action="@{/product-filter}" th:method="post" th:object="${productDtoFilter}">
+            <div class="form-group">
+                <label for="name">
+                    <span>Name:</span>
+                    <input class="form-control" type="text" id="name" th:field="*{name}">
+                </label>
+            </div>
+            <div class="form-group">
+                <label for="minValue">
+                    <span>Value:</span>
+                    <input class="form-control" type="number" id="minValue" th:field="*{minValue}">
+                </label>
+            </div>
+            <div class="form-group">
+                <label for="maxValue">
+                    <span>Минимальная стоимость: </span>
+                    <input class="form-control" type="number" id="maxValue" th:field="*{maxValue}">
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label for="maxValue">
+                    <span>Максимальная стоимость: </span>
+                    <input class="form-control" type="number" id="maxValue" th:field="*{maxValue}">
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="radio" name="pageable" th:value=5 th:field="*{pageable}">
+                <span>5</span>
+            </div>
+            <div>
+                <input type="radio" name="pageable" th:value=10 th:field="*{pageable}">
+                <span>10</span>
+            </div>
+
+            <div class="form-group">
+                <input class="btn btn-success" type="submit" value="Filter">
+            </div>
+        </form>
+</body>
+</html>

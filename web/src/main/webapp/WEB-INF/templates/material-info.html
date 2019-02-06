@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Material information</title>
+</head>
+<body>
+<div th:insert="~{header}"></div>
+
+<div>
+    <p> <b>Название: </b>
+        <span id="name" th:text="${material.name}"></span>
+        <br>
+        <br>
+        <b>Описание: </b>
+        <span id="Description" th:text="${material.description}">Description</span>
+    </p>
+</div>
+</body>
+</html>
+

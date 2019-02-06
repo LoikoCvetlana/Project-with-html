@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User information</title>
+</head>
+<body>
+<div th:insert="~{header}"></div>
+
+<div>
+    <br>
+    <p><b>Группа пользователей: </b>
+        <span id="role" th:text="${user.role}">Role</span></p>
+    <p><b>Дата регистрации:  </b>
+        <span id="registrationDate" th:text="${user.registrationDate}">Registration Date</span></p>
+    <p><b>Адрес электронной почты: </b>
+        <span id="email" th:text="${user.email}">Email</span> </p>
+    <p><b>Полное имя: </b>
+        <span id="Name" th:text="${user.fullName.name}">Name</span>
+        <span id="Lastname" th:text=" ${user.fullName.lastname}">Lastname</span></p>
+
+    <p><b>Телефон для связи: </b>
+        <span id="phone" th:text="${user.userDateil.phone}">Phone Number</span></p>
+    <p><b>Организация: </b>
+        <span id="company" th:text="${user.userDateil.company}">Company</span> <br></p>
+    <p><b>Должность: </b>
+        <span id="position" th:text="${user.userDateil.position}">Position</span></p>
+    <p><b>Иная информация: </b>
+        <span id="otherInformation" th:text="${user.userDateil.otherInformation}">Other Information</span></p>
+</div>
+</body>
+</html>

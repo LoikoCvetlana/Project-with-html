@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>New detail</title>
+</head>
+<body>
+<div th:insert="~{header}"></div>
+
+</div>
+<form th:action="@{/detail-save}" th:method="post" th:object="${userDetailCreateDto}">
+
+    <div class="form-group">
+        <p><b>Организация: </b> <label for="Company">
+            <input class="form-control" type="text" id="Company" th:field="*{company}">
+        </label></p>
+    </div>
+    <div class="form-group">
+        <p><b>Должность: </b> <label for="Position">
+            <input class="form-control" type="text" id="Position" th:field="*{position}">
+        </label></p>
+    </div>
+    <div class="form-group">
+        <p><b>Телефон для связи: </b> <label for="phone">
+            <input class="form-control" type="text" id="phone" th:field="*{phone}">
+        </label></p>
+    </div>
+    <div class="form-group">
+        <p><b>Другая информация: </b> <label for="otherInformation">
+            <input class="form-control" type="text" id="otherInformation" th:field="*{otherInformation}">
+        </label></p>
+    </div>
+    <div class="form-group">
+        <input class="btn btn-success" type="submit" value="Save">
+    </div>
+</form>
+</body>
+</html>

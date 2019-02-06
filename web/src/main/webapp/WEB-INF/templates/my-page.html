@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>My page</title>
+</head>
+<body>
+<div th:insert="~{header}"></div>
+
+<div>
+    <br>
+    <p><b>Группа пользователей: </b>
+        <span id="role" th:text="${user.role}">Role</span></p>
+    <p><b>Дата регистрации:  </b>
+        <span id="registrationDate" th:text="${user.registrationDate}">Registration Date</span></p>
+    <p><b>Адрес электронной почты: </b>
+        <span id="email" th:text="${user.email}">Email</span> </p>
+    <p><b>Полное имя: </b>
+        <span id="Name" th:text="${user.fullName.name}">Name</span>
+        <span id="Lastname" th:text=" ${user.fullName.lastname}">Lastname</span></p>
+</div>
+
+<div  th:if="${user.userDateil !=null}">
+    <p><b>Телефон для связи: </b>
+        <span id="phone" th:text="${user.userDateil.phone}">Phone Number</span></p>
+    <p><b>Организация: </b>
+        <span id="company" th:text="${user.userDateil.company}">Company</span> <br></p>
+    <p><b>Должность: </b>
+        <span id="position" th:text="${user.userDateil.position}">Position Date</span></p>
+    <p><b>Другая информация: </b>
+        <span id="otherInformation" th:text="${user.userDateil.otherInformation}">Other Information</span> <br></p>
+  </div>
+
+<div th:if="${user.userDateil ==null}">
+    <a sec:authorize="isAuthenticated()" th:href="@{/detail-save}" class="btn btn-info" role="button">Сохранить дополнительную информацию</a>
+</div>
+</body>
+</html>
