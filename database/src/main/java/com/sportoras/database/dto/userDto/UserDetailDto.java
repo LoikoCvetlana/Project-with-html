@@ -1,4 +1,4 @@
-package com.sportoras.service.dto.rewiewDto;
+package com.sportoras.database.dto.userDto;
 
 import com.sportoras.database.entity.User;
 import lombok.AllArgsConstructor;
@@ -6,17 +6,17 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class RewiewDto {
+public class UserDetailDto {
 
-    private Long id;
+    private  Long id;
+    private String company;
+    private String phone;
+    private String otherInformation;
+    private String position;
     private User user;
-    private String text;
-    private LocalDate date;
-    private long version;
 }
+

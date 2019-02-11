@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>User information</title>
@@ -19,14 +20,20 @@
         <span id="Name" th:text="${user.fullName.name}">Name</span>
         <span id="Lastname" th:text=" ${user.fullName.lastname}">Lastname</span></p>
 
+    <div  th:if="${user.userDetail !=null}">
     <p><b>Телефон для связи: </b>
-        <span id="phone" th:text="${user.userDateil.phone}">Phone Number</span></p>
+        <span id="phone" th:text="${user.userDetail.phone}">Phone Number</span></p>
     <p><b>Организация: </b>
-        <span id="company" th:text="${user.userDateil.company}">Company</span> <br></p>
+        <span id="company" th:text="${user.userDetail.company}">Company</span> <br></p>
     <p><b>Должность: </b>
-        <span id="position" th:text="${user.userDateil.position}">Position</span></p>
+        <span id="position" th:text="${user.userDetail.position}">Position</span></p>
     <p><b>Иная информация: </b>
-        <span id="otherInformation" th:text="${user.userDateil.otherInformation}">Other Information</span></p>
+        <span id="otherInformation" th:text="${user.userDetail.otherInformation}">Other Information</span></p>
+    </div>
+    <br>
+    <a sec:authorize="isAuthenticated()" th:if="${#strings.equals(user.email, email)}" th:href="@{/change-user-detail}"
+       class="btn btn-success" role="button">Изменить информацию о себе</a>
+
 </div>
 </body>
 </html>

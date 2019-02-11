@@ -1,15 +1,10 @@
 package com.sportoras.web.controller;
 
 import com.sportoras.database.entity.Material;
-import com.sportoras.database.entity.User;
 import com.sportoras.service.dto.Material.MaterialDto;
-import com.sportoras.service.dto.rewiewDto.RewiewDto;
 import com.sportoras.service.service.MaterialService;
-import com.sportoras.service.service.RewiewService;
-import com.sportoras.service.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,7 +20,7 @@ public class MaterialController {
 
     @GetMapping("/materials")
     public String getAllMaterials(Model model) {
-        List<MaterialDto> materials = materialService.allMaterials();
+        List<MaterialDto> materials = materialService.findAllMaterials();
         model.addAttribute("materials", materials);
         return "materials";
     }
@@ -44,7 +39,7 @@ public class MaterialController {
 
     @GetMapping("/material-info")
     public String materialInfo(Model model, Long id) {
-        Material material = materialService.findById(id);
+        MaterialDto material = materialService.findById(id);
         model.addAttribute("material", material);
         return "/material-info";
     }

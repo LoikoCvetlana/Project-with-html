@@ -1,10 +1,11 @@
 package com.sportoras.service.service;
 
-import com.sportoras.database.entity.UserDateil;
-import com.sportoras.database.repository.UserDateilRepository;
+import com.sportoras.database.entity.User;
+import com.sportoras.database.entity.UserDetail;
+import com.sportoras.database.repository.UserDetailRepository;
 import com.sportoras.database.repository.UserRepository;
 import com.sportoras.service.dto.userDto.UserDetailCreateDto;
-import com.sportoras.service.dto.userDto.UserDetailDto;
+import com.sportoras.service.dto.userDto.UserDetailUpdateDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,13 +16,13 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class UserDetailService {
 
-    private final UserDateilRepository userDateilRepository;
+    private final UserDetailRepository userDetailRepository;
     private final UserRepository userRepository;
 
 
     @Transactional
-    public UserDateil saveUserDetail(UserDetailCreateDto userDetailCreateDto) {
-        return userDateilRepository.save(UserDateil.builder()
+    public UserDetail saveUserDetail(UserDetailCreateDto userDetailCreateDto) {
+        return userDetailRepository.save(UserDetail.builder()
                 .user(userDetailCreateDto.getUser())
                 .company(userDetailCreateDto.getCompany())
                 .position(userDetailCreateDto.getPosition())
@@ -29,4 +30,21 @@ public class UserDetailService {
                 .otherInformation(userDetailCreateDto.getOtherInformation())
                 .build());
     }
+
+    @Transactional
+    public UserDetail updarteUserDetail(UserDetailUpdateDto userDetailUpdateDto) {
+        return userDetailRepository.save(UserDetail.builder()
+                .id(userDetailUpdateDto.getId())
+                .user(userDetailUpdateDto.getUser())
+                .company(userDetailUpdateDto.getCompany())
+                .position(userDetailUpdateDto.getPosition())
+                .phone(userDetailUpdateDto.getPhone())
+                .otherInformation(userDetailUpdateDto.getOtherInformation())
+                .build());
+    }
+
+    public UserDetail findUserDetailByUser(User user) {
+        return userDetailRepository.findByUser(user);
+    }
+
 }

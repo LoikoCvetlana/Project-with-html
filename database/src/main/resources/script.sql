@@ -26,11 +26,11 @@ CREATE TABLE product (
   material_id INTEGER REFERENCES material (id)
 );
 
-CREATE TABLE rewiew (
+CREATE TABLE review (
   id      BIGSERIAL PRIMARY KEY,
   date    DATE,
   user_id BIGINT REFERENCES "user" (id),
-  rewiew  CHARACTER VARYING(2500)
+  review  CHARACTER VARYING(2500)
 
 );
 

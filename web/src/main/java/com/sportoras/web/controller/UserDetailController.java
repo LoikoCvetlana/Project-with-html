@@ -1,8 +1,9 @@
 package com.sportoras.web.controller;
 
 import com.sportoras.database.entity.User;
-import com.sportoras.service.dto.userDto.UserCreateDto;
+import com.sportoras.database.entity.UserDetail;
 import com.sportoras.service.dto.userDto.UserDetailCreateDto;
+import com.sportoras.service.dto.userDto.UserDetailUpdateDto;
 import com.sportoras.service.service.UserDetailService;
 import com.sportoras.service.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -36,4 +37,29 @@ public class UserDetailController {
         userDetailService.saveUserDetail(userDetailCreateDto);
         return "redirect:/my-page";
     }
+
+    @GetMapping("/change-user-detail")
+    public String changeUserDetailSave(Model model) {
+        model.addAttribute("userDetailUpdateDto", new UserDetailUpdateDto());
+        return "/change-user-detail";
+    }
+
+    @PostMapping("/change-user-detail")
+    public String changeUserDetailSave(UserDetailUpdateDto userDetailUpdateDto, Authentication authentication) {
+        User user = userService.findUserByEmail(authentication.getName());
+        Long id = userDetailService.findUserDetailByUser(user).getId();
+        userDetailUpdateDto.setUser(user);
+        userDetailUpdateDto.setId(id);
+        userDetailService.updarteUserDetail(userDetailUpdateDto);
+        return "redirect:/my-page";
+    }
+
+//    @PostMapping("/change-user-detail")
+//    public String changeUserDetailSave(UserDetailUpdateDto userDetailUpdateDto, Authentication authentication) {
+//        User user = userService.findUserByEmail(authentication.getName());
+//        UserDetail userDetail = userDetailService.findUserDetailByUser(user);
+////        userDetailUpdateDto.setUser(user);
+//        userDetailService.updarteUserDetail(userDetailUpdateDto);
+//        return "redirect:/my-page";
+//    }
 }

@@ -10,7 +10,7 @@
 
 
 <div th:each="product: ${products}">
-    <br> ***
+     ***
     <p><img id="picture" th:src="@{${product.picture}}" th:alt="picture" width="150"> <br>
     <a th:href="@{/product-info(id=${product.id})}" th:text="${product.name}+${product.article}">Product name</a>
     </p>

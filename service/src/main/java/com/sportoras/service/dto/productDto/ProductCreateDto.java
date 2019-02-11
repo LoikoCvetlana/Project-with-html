@@ -24,4 +24,12 @@ public class ProductCreateDto {
     private String picture;
     private BigDecimal value;
     private String material;
+
+    public ProductCreateDto(String name, String article, String picture, BigDecimal value, String material) {
+        this.name = name;
+        this.article = article;
+        this.picture = picture;
+        this.value = value;
+        this.material = material;
+    }
 }
