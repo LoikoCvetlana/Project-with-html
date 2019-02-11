@@ -8,7 +8,7 @@
 <div th:insert="~{header}"></div>
 
 <div th:each="material: ${materials}">
-    <br> ***
+    ***
     <p> <b>Название: </b>
         <a th:href="@{/material-info(id=${material.id})}" th:text="${material.name}">Material name</a>
 

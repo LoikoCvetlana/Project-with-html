@@ -31,7 +31,7 @@ public class ProductService {
         return productRepository.findProductById(productId);
     }
 
-       public List<ProductBasicDto> filterProduct(ProductDtoFilter productDtoFilter) {
+    public List<ProductBasicDto> filterProduct(ProductDtoFilter productDtoFilter) {
         return productRepository.findAllByNameBetweenOrderByValue
                 (productDtoFilter.getName(), productDtoFilter.getMinValue(), productDtoFilter.getMaxValue(), productDtoFilter.getPageable()).stream()
                 .map(it -> new ProductBasicDto(it.getId(), it.getName(), it.getArticle(), it.getPicture()))
@@ -39,7 +39,7 @@ public class ProductService {
     }
 
     @Cacheable
-    public List<ProductBasicDto> allProducts() {
+    public List<ProductBasicDto> findAllProducts() {
         return productRepository.findAll().stream()
                 .map(it -> new ProductBasicDto(it.getId(), it.getName(), it.getArticle(), it.getPicture()))
                 .collect(Collectors.toList());
@@ -59,5 +59,11 @@ public class ProductService {
                         .build());
 
         return savedProduct;
+    }
+
+    public List<ProductBasicDto> findProductByMaterial(Long id) {
+        return productRepository.findAllByMaterialId(id).stream()
+                .map(it -> new ProductBasicDto(it.getId(), it.getName(), it.getArticle(), it.getPicture()))
+                .collect(Collectors.toList());
     }
 }

@@ -1,20 +1,10 @@
 package com.sportoras.database.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Builder
 @Data
@@ -40,12 +30,15 @@ public class User extends BaseEntity<Long> {
     private String email;
 
     @OneToOne(mappedBy = "user")
-    private UserDateil userDateil;
+    private UserDetail userDetail;
 
     @Column(name = "role")
     private String role;
 
-    public User(String email, String password, FullName fullName) {
+    @OneToMany
+    private List<Review> reviews;
+
+      public User(String email, String password, FullName fullName) {
         this.email = email;
         this.password = password;
         this.fullName = fullName;

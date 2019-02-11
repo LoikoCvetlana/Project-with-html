@@ -1,0 +1,34 @@
+package com.sportoras.database.entity;
+
+import lombok.*;
+
+import javax.persistence.*;
+import java.time.LocalDate;
+
+@Data
+@EqualsAndHashCode(of = "id")
+@ToString(exclude = "user")
+@NoArgsConstructor
+@Builder
+@Entity
+@Table(name = "review", schema = "oraz_storage")
+@AllArgsConstructor
+public class Review extends BaseEntity<Long> {
+
+    @Version
+    private long version;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    private String text;
+
+    private LocalDate date;
+
+    public Review(User user, String text, LocalDate date) {
+        this.user = user;
+        this.text = text;
+        this.date = date;
+    }
+}

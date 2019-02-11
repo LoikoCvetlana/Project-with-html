@@ -22,5 +22,5 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
 
     List<Product> findAllByMaterialOrderByValue(String materialName, Pageable pageable);
 
-
+    List<Product> findAllByMaterialId (Long materialId);
 }

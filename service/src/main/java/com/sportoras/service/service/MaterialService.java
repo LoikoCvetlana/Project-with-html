@@ -23,12 +23,13 @@ public class MaterialService {
 
     private final MaterialRepository materialRepository;
 
-    public Material findById(Long materialId) {
-        return materialRepository.findMaterialById(materialId);
+    public MaterialDto findById(Long materialId) {
+        Material material = materialRepository.findMaterialById(materialId);
+        return new MaterialDto(material.getId(), material.getName(), material.getDescription());
     }
 
     @Cacheable
-    public List<MaterialDto> allMaterials() {
+    public List<MaterialDto> findAllMaterials() {
         return materialRepository.findAll().stream()
                 .map(it -> new MaterialDto(it.getId(), it.getName(), it.getDescription(),it.getProducts()))
                 .collect(Collectors.toList());

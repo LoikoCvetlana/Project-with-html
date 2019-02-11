@@ -17,6 +17,18 @@ public class MaterialDto {
 
     private Long id;
     private String name;
+
+    public MaterialDto(Long id, String name, String description) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+    }
+
     private String description;
     private List<Product> products = new ArrayList<>();
+
+    public MaterialDto(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
 }

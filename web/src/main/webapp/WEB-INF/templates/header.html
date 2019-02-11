@@ -33,11 +33,11 @@
     <a href="?language=ru_RU">Русский</a>
 </div>
 <a sec:authorize="isAnonymous()" th:href="@{/user-save}" th:text="#{button.register}" class="btn btn-warning" role="button"></a>
-<a sec:authorize="isAnonymous()" th:href="@{/login}" th:text="#{user.login}" class="btn btn-warning" role="button"></a>
+<a sec:authorize="isAnonymous()"  th:href="@{/login}" th:text="#{user.login}" class="btn btn-warning" role="button"></a>
 <a sec:authorize="isAuthenticated()" th:href="@{/my-page}" class="btn btn-info" role="button" th:text="#{button.profile}"></a>
-<a th:href="@{/products}" th:text="#{button.products}" class="btn btn-info" role="button"></a>
+<a sec:authorize="isAuthenticated()" th:href="@{/products}" th:text="#{button.products}" class="btn btn-info" role="button"></a>
 <a sec:authorize="isAuthenticated()" th:href="@{/users}" class="btn btn-info" role="button" th:text="#{button.users}"></a>
-<a sec:authorize="isAuthenticated()" th:href="@{/rewiews}" class="btn btn-info" role="button" th:text="#{button.rewiews}"></a>
+<a sec:authorize="isAuthenticated()" th:href="@{/reviews}" class="btn btn-info" role="button" th:text="#{button.reviews}"></a>
 <a sec:authorize="isAuthenticated()" th:href="@{/materials}" class="btn btn-info" role="button" th:text="#{button.materials}"></a>
 <br>
 <a sec:authorize="hasAuthority('Admin')" th:href="@{/product-save}" class="btn btn-secondary" role="button" th:text="#{button.addProduct}"></a>
