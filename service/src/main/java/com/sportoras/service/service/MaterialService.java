@@ -28,6 +28,11 @@ public class MaterialService {
         return new MaterialDto(material.getId(), material.getName(), material.getDescription());
     }
 
+    public MaterialDto findByName(String name) {
+        Material material = materialRepository.findByName(name);
+        return new MaterialDto(material.getId(), material.getName(), material.getDescription());
+    }
+
     @Cacheable
     public List<MaterialDto> findAllMaterials() {
         return materialRepository.findAll().stream()

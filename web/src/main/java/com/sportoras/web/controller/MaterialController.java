@@ -1,6 +1,5 @@
 package com.sportoras.web.controller;
 
-import com.sportoras.database.entity.Material;
 import com.sportoras.service.dto.Material.MaterialDto;
 import com.sportoras.service.service.MaterialService;
 import lombok.RequiredArgsConstructor;

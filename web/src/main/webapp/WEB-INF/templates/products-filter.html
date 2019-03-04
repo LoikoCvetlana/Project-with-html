@@ -1,14 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Products</title>
 </head>
 <body>
 <div th:insert="~{header}"></div>
-
-<!--<span sec:authentication="name">Username</span>-->
 
 <div th:each="product: ${products}">
     <br> ***

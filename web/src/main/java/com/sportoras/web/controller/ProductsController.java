@@ -1,11 +1,9 @@
 package com.sportoras.web.controller;
 
-import com.sportoras.database.entity.Material;
 import com.sportoras.database.entity.Product;
 import com.sportoras.service.dto.Material.MaterialDto;
 import com.sportoras.service.dto.productDto.ProductBasicDto;
 import com.sportoras.service.dto.productDto.ProductCreateDto;
-import com.sportoras.service.dto.productDto.ProductDtoFilter;
 import com.sportoras.service.service.MaterialService;
 import com.sportoras.service.service.ProductService;
 import lombok.AllArgsConstructor;

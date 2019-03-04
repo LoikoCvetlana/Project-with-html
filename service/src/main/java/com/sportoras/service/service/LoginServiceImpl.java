@@ -9,6 +9,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 @Service
 @Transactional
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
@@ -20,6 +22,7 @@ public class LoginServiceImpl implements LoginService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+
         return userRepository.findByEmail(email)
                 .map(detailsConverter::convert)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));

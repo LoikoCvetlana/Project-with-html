@@ -1,7 +1,6 @@
 package com.sportoras.web.controller;
 
 import com.sportoras.database.entity.User;
-import com.sportoras.database.entity.UserDetail;
 import com.sportoras.service.dto.userDto.UserDetailCreateDto;
 import com.sportoras.service.dto.userDto.UserDetailUpdateDto;
 import com.sportoras.service.service.UserDetailService;

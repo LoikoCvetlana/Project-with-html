@@ -7,7 +7,6 @@ import com.sportoras.database.repository.ProductRepository;
 import com.sportoras.service.dto.productDto.ProductBasicDto;
 import com.sportoras.service.dto.productDto.ProductCreateDto;
 import com.sportoras.service.dto.productDto.ProductDtoFilter;
-import com.sportoras.service.dto.productDto.ProductFullDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
@@ -29,6 +28,10 @@ public class ProductService {
 
     public Product findProductById(Long productId) {
         return productRepository.findProductById(productId);
+    }
+
+    public Product findProductByArticle(String article) {
+        return productRepository.findByArticle(article);
     }
 
     public List<ProductBasicDto> filterProduct(ProductDtoFilter productDtoFilter) {
